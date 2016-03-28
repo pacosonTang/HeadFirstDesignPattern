@@ -8,10 +8,19 @@ public class CandyMachineProxyMonitor {
 	}
 	
 	public void report() {
+		int counter = 0;
+		
 		try {
-			System.out.println("machine.location = " + remoteMachine.getLocation());
-			System.out.println("machine.count = " + remoteMachine.getCount());
-			System.out.println("machine.state = " + remoteMachine.getState());
+			while(true) {
+				System.out.println("round" + (++counter));
+				System.out.println("machine.location = " + remoteMachine.getLocation());
+				System.out.println("machine.count = " + remoteMachine.getCount());
+				System.out.println("machine.state = " + remoteMachine.getState());
+				if(counter == 5) {
+					break;
+				}
+				Thread.sleep(10000);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
